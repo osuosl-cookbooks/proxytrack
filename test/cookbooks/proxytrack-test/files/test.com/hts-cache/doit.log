@@ -1,0 +1,8 @@
+-Z -%H -Q -%! -s0 -c3 -#L400000 -%k -b0 -r10000 -O /srv/httrack/cfsummit.com cfsummit.com cfsummit.com/2014 cfsummit.com/2014/ cfsummit.com/cfsummit.css cfsummit.com/2013
+File generated automatically on Wed, 18 Feb 2015 22:33:57, do NOT edit
+
+To update a mirror, just launch httrack without any parameters
+The existing cache will be used (and modified)
+To have other options, retype all parameters and launch HTTrack
+To continue an interrupted mirror, just launch httrack without any parameters
+

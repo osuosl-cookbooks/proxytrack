@@ -28,7 +28,10 @@ test_port = 8080
     when 'test'
       it { should be_enabled }
       it { should be_running }
-    when 'stop', 'delete'
+    when 'stop'
+      it { should be_enabled }
+      it { should_not be_running }
+    when 'delete'
       it { should_not be_enabled }
       it { should_not be_running }
     end
@@ -43,11 +46,13 @@ test_port = 8080
     end
   end
 
-  describe http("localhost:#{test_port}", headers: { Host: 'cfsummit.com' }) do
-    case s
-    when 'test'
+  case s
+  when 'test'
+    describe http("0.0.0.0:#{test_port}", headers: { Host: 'cfsummit.com' }) do
       its('status') { should cmp 200 }
-    when 'stop', 'delete'
+    end
+  when 'stop', 'delete'
+    describe http("localhost:#{test_port}", headers: { Host: 'cfsummit.com' }) do
       its('status') { should cmp nil }
     end
   end

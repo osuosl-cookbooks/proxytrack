@@ -24,12 +24,12 @@
 end
 
 proxytrack 'test.com' do
-  proxy_address 'localhost'
+  proxy_address '0.0.0.0'
   proxy_port 8080
-  icp_address 'localhost'
+  icp_address '0.0.0.0'
   icp_port 3130
   httrack_file_paths %w(/data/archives/test.com/hts-cache/new.zip)
-  action [:create, :start, :enable]
+  action :create
 end
 
 proxytrack 'stop.com' do

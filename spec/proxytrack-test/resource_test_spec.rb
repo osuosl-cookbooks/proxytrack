@@ -18,7 +18,7 @@ describe 'proxytrack-test::resource_test' do
       it { expect(chef_run).to include_recipe('yum-epel') }
       it { expect(chef_run).to install_package('httrack') }
 
-      %w(test stop delete).each do |s|
+      %w(test delete).each do |s|
         it do
           expect(chef_run).to create_remote_directory("/data/archives/#{s}.com").with(
             source: 'test.com',
@@ -38,21 +38,11 @@ describe 'proxytrack-test::resource_test' do
         )
       end
       it do
-        expect(chef_run).to create_proxytrack('stop.com').with(
+        expect(chef_run).to create_proxytrack('delete.com').with(
           proxy_address: 'localhost',
           proxy_port: 8081,
           icp_address: 'localhost',
           icp_port: 3131,
-          httrack_file_paths: %w(/data/archives/stop.com/hts-cache/new.zip),
-          action: [:create, :stop]
-        )
-      end
-      it do
-        expect(chef_run).to create_proxytrack('delete.com').with(
-          proxy_address: 'localhost',
-          proxy_port: 8082,
-          icp_address: 'localhost',
-          icp_port: 3132,
           httrack_file_paths: %w(/data/archives/delete.com/hts-cache/new.zip),
           action: [:create, :delete]
         )

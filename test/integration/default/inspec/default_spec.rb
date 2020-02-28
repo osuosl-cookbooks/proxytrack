@@ -13,37 +13,26 @@ describe package('httrack') do
 end
 
 test_port = 8080
-%w(test stop delete).each do |s|
+%w(test delete).each do |s|
   describe file("/data/archives/#{s}.com/hts-cache/new.zip") do
-    case s
-    when 'test', 'stop'
-      it { should exist }
-    when 'delete'
-      it { should_not exist }
-    end
+    it { should exist }
   end
 
   describe service("proxytrack-#{s}.com") do
     case s
     when 'test'
+      it { should be_installed }
       it { should be_enabled }
       it { should be_running }
-    when 'stop'
-      it { should be_enabled }
-      it { should_not be_running }
     when 'delete'
+      it { should_not be_installed }
       it { should_not be_enabled }
       it { should_not be_running }
     end
   end
 
-  describe file("/data/archives/#{s}.com/hts-cache/new.zip") do
-    case s
-    when 'test', 'stop'
-      it { should exist }
-    when 'delete'
-      it { should_not exist }
-    end
+  describe file("/etc/systemd/system/proxytrack-#{s}.com.service") do
+    s == 'test' ? it { should exist } : it { should_not exist }
   end
 
   case s
@@ -51,7 +40,7 @@ test_port = 8080
     describe http("0.0.0.0:#{test_port}", headers: { Host: 'cfsummit.com' }) do
       its('status') { should cmp 200 }
     end
-  when 'stop', 'delete'
+  when 'delete'
     describe http("localhost:#{test_port}", headers: { Host: 'cfsummit.com' }) do
       its('status') { should cmp nil }
     end

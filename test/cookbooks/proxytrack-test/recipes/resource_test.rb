@@ -32,20 +32,11 @@ proxytrack 'test.com' do
   action :create
 end
 
-proxytrack 'stop.com' do
+proxytrack 'delete.com' do
   proxy_address 'localhost'
   proxy_port 8081
   icp_address 'localhost'
   icp_port 3131
-  httrack_file_paths %w(/data/archives/stop.com/hts-cache/new.zip)
-  action [:create, :stop]
-end
-
-proxytrack 'delete.com' do
-  proxy_address 'localhost'
-  proxy_port 8082
-  icp_address 'localhost'
-  icp_port 3132
   httrack_file_paths %w(/data/archives/delete.com/hts-cache/new.zip)
   action [:create, :delete]
 end

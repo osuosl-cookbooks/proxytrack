@@ -5,4 +5,4 @@ verifier:
 suites:
   - name: default
     run_list:
-      - recipe[proxytrack::default]
+      - recipe[proxytrack-test::resource_test]

@@ -38,6 +38,8 @@ describe 'proxytrack-test::resource_test' do
         )
       end
       it { expect(chef_run).to create_systemd_unit('proxytrack-test.com.service') }
+      it { expect(chef_run.systemd_unit('proxytrack-test.com.service')).to notify('service[proxytrack-test.com]').to(:restart) }
+
       it { expect(chef_run).to enable_service('proxytrack-test.com') }
       it { expect(chef_run).to start_service('proxytrack-test.com') }
 

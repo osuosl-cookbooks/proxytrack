@@ -37,6 +37,10 @@ describe 'proxytrack-test::resource_test' do
           action: [:create]
         )
       end
+      it { expect(chef_run).to create_systemd_unit('proxytrack-test.com.service') }
+      it { expect(chef_run).to enable_service('proxytrack-test.com') }
+      it { expect(chef_run).to start_service('proxytrack-test.com') }
+
       it do
         expect(chef_run).to create_proxytrack('delete.com').with(
           proxy_address: 'localhost',
@@ -47,6 +51,9 @@ describe 'proxytrack-test::resource_test' do
           action: [:create, :delete]
         )
       end
+      it { expect(chef_run).to delete_systemd_unit('proxytrack-delete.com.service') }
+      it { expect(chef_run).to stop_service('proxytrack-delete.com') }
+      it { expect(chef_run).to disable_service('proxytrack-delete.com') }
     end
   end
 end

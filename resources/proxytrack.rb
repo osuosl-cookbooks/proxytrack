@@ -28,7 +28,7 @@ action :create do
     WantedBy=multi-user.target
     EOF
     action [:create]
-    notifies :restart, "service[proxytrack-#{new_resource.name}]", :immediately
+    notifies :restart, "service[proxytrack-#{new_resource.name}]"
   end
 
   service "proxytrack-#{new_resource.name}" do
@@ -37,11 +37,11 @@ action :create do
 end
 
 action :delete do
-  systemd_unit "proxytrack-#{new_resource.name}.service" do
-    action [:delete]
-  end
-
   service "proxytrack-#{new_resource.name}" do
     action [:stop, :disable]
+  end
+
+  systemd_unit "proxytrack-#{new_resource.name}.service" do
+    action [:delete]
   end
 end

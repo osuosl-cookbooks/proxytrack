@@ -22,17 +22,26 @@ action :create do
     Restart=always
     RestartSec=1
     User=#{new_resource.user}
-    ExecStart=/bin/proxytrack #{new_resource.proxy_address}:#{new_resource.proxy_port} #{new_resource.icp_address}:#{new_resource.icp_port} #{new_resource.httrack_file_paths.join(' ')}
+    ExecStart=/bin/proxytrack #{new_resource.proxy_address}:#{new_resource.proxy_port} #{new_resource.icp_address}:#{new_resource.icp_port} #{new_resource.httrack_file_paths.sort.join(' ')}
 
     [Install]
     WantedBy=multi-user.target
     EOF
-    action [:create, :start, :enable]
+    action [:create]
+    notifies :restart, "service[proxytrack-#{new_resource.name}]"
+  end
+
+  service "proxytrack-#{new_resource.name}" do
+    action [:enable, :start]
   end
 end
 
 action :delete do
+  service "proxytrack-#{new_resource.name}" do
+    action [:stop, :disable]
+  end
+
   systemd_unit "proxytrack-#{new_resource.name}.service" do
-    action [:stop, :disable, :delete]
+    action [:delete]
   end
 end

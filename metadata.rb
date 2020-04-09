@@ -7,7 +7,7 @@ issues_url       'https://github.com/osuosl-cookbooks/proxytrack/issues'
 source_url       'https://github.com/osuosl-cookbooks/proxytrack'
 description      'Installs/Configures proxytrack'
 long_description 'Installs/Configures proxytrack'
-version          '1.0.0'
+version          '1.0.1'
 
 supports         'centos', '~> 7.0'
 

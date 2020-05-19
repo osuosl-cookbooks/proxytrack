@@ -20,6 +20,7 @@
   remote_directory "/data/archives/#{d}.com" do
     source 'test.com'
     recursive true
+    notifies :restart, 'proxytrack[test.com]'
   end
 end
 

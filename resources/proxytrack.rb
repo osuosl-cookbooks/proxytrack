@@ -2,11 +2,11 @@ resource_name :proxytrack
 
 default_action :create
 
-property :proxy_address,      String, default: 'localhost'
-property :proxy_port,         Integer
-property :icp_address,        String, default: 'localhost'
-property :icp_port,           Integer
-property :httrack_file_paths, Array
+property :proxy_address,      String, default: '127.0.0.1'
+property :proxy_port,         Integer, default: 8081
+property :icp_address,        String, default: '127.0.0.1'
+property :icp_port,           Integer, default: 3131
+property :httrack_file_paths, Array, required: true
 property :user,               String, default: 'nobody'
 
 action :create do
@@ -33,6 +33,12 @@ action :create do
 
   service "proxytrack-#{new_resource.name}" do
     action [:enable, :start]
+  end
+end
+
+action :restart do
+  service "proxytrack-#{new_resource.name}" do
+    action [:restart]
   end
 end
 

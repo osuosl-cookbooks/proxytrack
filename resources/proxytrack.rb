@@ -36,6 +36,12 @@ action :create do
   end
 end
 
+action :restart do
+  service "proxytrack-#{new_resource.name}" do
+    action [:restart]
+  end
+end
+
 action :delete do
   service "proxytrack-#{new_resource.name}" do
     action [:stop, :disable]

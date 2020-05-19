@@ -25,6 +25,9 @@ describe 'proxytrack-test::resource_test' do
             recursive: true
           )
         end
+        it do
+          expect(chef_run.remote_directory("/data/archives/#{s}.com")).to notify('proxytrack[test.com]').to(:restart)
+        end
       end
 
       it do

@@ -3,6 +3,10 @@ proxytrack CHANGELOG
 This file is used to list changes made in each version of the
 proxytrack cookbook.
 
+1.0.2 (2020-05-19)
+------------------
+- Set some saner defaults
+
 1.0.1 (2020-04-09)
 ------------------
 - Refactor resource

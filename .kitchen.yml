@@ -1,8 +1,0 @@
----
-verifier:
-  name: inspec
-
-suites:
-  - name: default
-    run_list:
-      - recipe[proxytrack-test::resource_test]

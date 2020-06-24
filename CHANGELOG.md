@@ -3,6 +3,10 @@ proxytrack CHANGELOG
 This file is used to list changes made in each version of the
 proxytrack cookbook.
 
+1.0.3 (2020-06-24)
+------------------
+- Chef 15 compatibility fixes
+
 1.0.2 (2020-05-19)
 ------------------
 - Set some saner defaults

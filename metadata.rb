@@ -6,7 +6,7 @@ chef_version     '>= 13'
 issues_url       'https://github.com/osuosl-cookbooks/proxytrack/issues'
 source_url       'https://github.com/osuosl-cookbooks/proxytrack'
 description      'Installs/Configures proxytrack'
-version          '1.0.2'
+version          '1.0.3'
 
 supports         'centos', '~> 7.0'
 

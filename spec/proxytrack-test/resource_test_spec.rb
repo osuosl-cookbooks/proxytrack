@@ -47,14 +47,7 @@ describe 'proxytrack-test::resource_test' do
       it { expect(chef_run).to start_service('proxytrack-test.com') }
 
       it do
-        expect(chef_run).to create_proxytrack('delete.com').with(
-          proxy_address: 'localhost',
-          proxy_port: 8081,
-          icp_address: 'localhost',
-          icp_port: 3131,
-          httrack_file_paths: %w(/data/archives/delete.com/hts-cache/new.zip),
-          action: [:create, :delete]
-        )
+        expect(chef_run).to delete_proxytrack('delete.com')
       end
       it { expect(chef_run).to delete_systemd_unit('proxytrack-delete.com.service') }
       it { expect(chef_run).to stop_service('proxytrack-delete.com') }

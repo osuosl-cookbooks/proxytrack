@@ -34,10 +34,5 @@ proxytrack 'test.com' do
 end
 
 proxytrack 'delete.com' do
-  proxy_address 'localhost'
-  proxy_port 8081
-  icp_address 'localhost'
-  icp_port 3131
-  httrack_file_paths %w(/data/archives/delete.com/hts-cache/new.zip)
-  action [:create, :delete]
+  action :delete
 end

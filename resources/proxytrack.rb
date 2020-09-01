@@ -1,4 +1,5 @@
 resource_name :proxytrack
+provides :proxytrack
 
 default_action :create
 
@@ -6,7 +7,7 @@ property :proxy_address,      String, default: '127.0.0.1'
 property :proxy_port,         Integer, default: 8081
 property :icp_address,        String, default: '127.0.0.1'
 property :icp_port,           Integer, default: 3131
-property :httrack_file_paths, Array, required: true
+property :httrack_file_paths, Array, required: [:create]
 property :user,               String, default: 'nobody'
 
 action :create do

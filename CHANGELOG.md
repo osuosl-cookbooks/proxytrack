@@ -3,6 +3,10 @@ proxytrack CHANGELOG
 This file is used to list changes made in each version of the
 proxytrack cookbook.
 
+1.1.0 (2021-04-07)
+------------------
+- Update Chef dependency to >= 16
+
 1.0.4 (2020-09-01)
 ------------------
 - Chef 16 Compatibility Fixes

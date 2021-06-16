@@ -1,5 +1,6 @@
 resource_name :proxytrack
 provides :proxytrack
+unified_mode true
 
 default_action :create
 

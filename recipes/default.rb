@@ -2,7 +2,7 @@
 # Cookbook:: proxytrack
 # Recipe:: default
 #
-# Copyright:: 2020-2021, Oregon State University
+# Copyright:: 2020-2024, Oregon State University
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,5 +17,6 @@
 # limitations under the License.
 
 include_recipe 'yum-epel'
+include_recipe 'yum-osuosl' if node['platform_version'].to_i >= 8
 
 package 'httrack'

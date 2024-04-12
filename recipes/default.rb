@@ -17,5 +17,6 @@
 # limitations under the License.
 
 include_recipe 'yum-epel'
+include_recipe 'yum-osuosl' if node['platform_version'].to_i >= 8
 
 package 'httrack'

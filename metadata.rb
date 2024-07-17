@@ -6,7 +6,7 @@ chef_version     '>= 16'
 issues_url       'https://github.com/osuosl-cookbooks/proxytrack/issues'
 source_url       'https://github.com/osuosl-cookbooks/proxytrack'
 description      'Installs/Configures proxytrack'
-version          '1.3.0'
+version          '1.4.0'
 
 supports         'almalinux', '~> 8.0'
 

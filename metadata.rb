@@ -9,6 +9,7 @@ description      'Installs/Configures proxytrack'
 version          '1.4.0'
 
 supports         'almalinux', '~> 8.0'
+supports         'almalinux', '~> 9.0'
 
 depends          'yum-epel'
 depends          'yum-osuosl'

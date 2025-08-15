@@ -10,6 +10,7 @@ version          '1.4.1'
 
 supports         'almalinux', '~> 8.0'
 supports         'almalinux', '~> 9.0'
+supports         'almalinux', '~> 10.0'
 
 depends          'yum-epel'
 depends          'yum-osuosl'

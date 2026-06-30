@@ -6,8 +6,7 @@ verifier:
   name: inspec
 
 provisioner:
-  name: chef_infra
-  product_name: cinc
+  name: cinc_infra
   enforce_idempotency: true
   product_version: '18'
   multiple_converge: 2

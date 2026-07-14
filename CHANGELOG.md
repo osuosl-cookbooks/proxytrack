@@ -3,6 +3,10 @@ proxytrack CHANGELOG
 This file is used to list changes made in each version of the
 proxytrack cookbook.
 
+1.4.4 (2026-07-14)
+------------------
+- Bump the yum-epel ceiling to match production
+
 1.4.3 (2026-07-14)
 ------------------
 - cinc: updated kitchen and dokken files

@@ -9,7 +9,7 @@ describe 'proxytrack::default' do
       it 'converges successfully' do
         expect { chef_run }.to_not raise_error
       end
-      it { expect(chef_run).to include_recipe('yum-epel') }
+      it { expect(chef_run).to create_yum_epel('default') }
       it { expect(chef_run).to include_recipe('yum-osuosl') }
       it { expect(chef_run).to install_package('httrack') }
     end

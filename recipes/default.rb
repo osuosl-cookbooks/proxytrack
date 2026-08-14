@@ -16,7 +16,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-yum_epel 'default'
+if node['proxytrack']['managed_epel']
+  yum_epel 'default'
+end
 
 include_recipe 'yum-osuosl'
 

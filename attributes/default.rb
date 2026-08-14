@@ -1,1 +1,1 @@
-default['proxytrack']['managed_epel'] = true
+default['proxytrack']['manage_epel'] = true

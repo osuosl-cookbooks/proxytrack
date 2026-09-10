@@ -8,9 +8,9 @@ source_url       'https://github.com/osuosl-cookbooks/proxytrack'
 description      'Installs/Configures proxytrack'
 version          '1.4.4'
 
-supports         'almalinux', '~> 8.0'
-supports         'almalinux', '~> 9.0'
-supports         'almalinux', '~> 10.0'
+supports 'almalinux', '~> 8.0'
+supports 'almalinux', '~> 9.0'
+supports 'almalinux', '~> 10.0'
 
 depends          'yum-epel', '>= 6.0.0'
 depends          'yum-osuosl'

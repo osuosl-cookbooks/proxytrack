@@ -16,6 +16,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# Standalone test node: nothing else manages EPEL here
+node.default['proxytrack']['manage_epel'] = true
+
 %w(test stop delete ).each do |d|
   remote_directory "/data/archives/#{d}.com" do
     source 'test.com'

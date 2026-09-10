@@ -27,13 +27,13 @@ Attributes
 
 | Key | Type | Description | Default |
 | --- | ---- | ----------- | ------- |
-| `['proxytrack']['manage_epel']` | Boolean | Whether this cookbook configures the EPEL repository. Set to `false` on nodes where EPEL is already managed elsewhere. | `true` |
+| `['proxytrack']['manage_epel']` | Boolean | Whether this cookbook configures the EPEL repository. Off by default: this is an internal cookbook and every OSL node runs `base`, where `osl-repos` already manages EPEL. Set to `true` on a standalone node. | `false` |
 
 Recipes
 -------
 #### proxytrack::default
-Configures the EPEL repository (unless `['proxytrack']['manage_epel']` is set to
-`false`) and the OSUOSL repository, then installs the `httrack` package.
+Configures the OSUOSL repository and, when `['proxytrack']['manage_epel']` is
+`true`, the EPEL repository, then installs the `httrack` package.
 
 This recipe is included automatically by the `proxytrack` resource, so it does
 not normally need to be added to a run list directly.
@@ -90,10 +90,10 @@ proxytrack 'delete.com' do
 end
 ```
 
-Skip EPEL management when another cookbook already configures it:
+Manage EPEL from this cookbook on a node where nothing else does:
 
 ```ruby
-node.default['proxytrack']['manage_epel'] = false
+node.default['proxytrack']['manage_epel'] = true
 ```
 
 Contributing

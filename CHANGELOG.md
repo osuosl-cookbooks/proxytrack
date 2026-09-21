@@ -3,6 +3,10 @@ proxytrack CHANGELOG
 This file is used to list changes made in each version of the
 proxytrack cookbook.
 
+1.4.5 (2026-09-21)
+------------------
+- chef 19 update
+
 1.4.4 (2026-07-14)
 ------------------
 - Bump the yum-epel ceiling to match production

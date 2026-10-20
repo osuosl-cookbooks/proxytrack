@@ -12,5 +12,7 @@ supports 'almalinux', '~> 8.0'
 supports 'almalinux', '~> 9.0'
 supports 'almalinux', '~> 10.0'
 
-depends          'yum-epel', '>= 6.0.0'
-depends          'yum-osuosl'
+# manage_epel needs yum-epel 6's yum_epel; no floor so this releases ahead of
+# osl-repos, whose pinned version still needs yum-epel 5
+depends 'yum-epel'
+depends 'yum-osuosl'

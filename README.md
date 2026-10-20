@@ -15,7 +15,7 @@ Requirements
 - Chef/Cinc 16 or later
 
 #### cookbooks
-- `yum-epel` (`>= 6.0.0`)
+- `yum-epel` (6.0.0 or later when `['proxytrack']['manage_epel']` is true)
 - `yum-osuosl`
 
 #### packages
